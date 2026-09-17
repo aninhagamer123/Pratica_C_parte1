@@ -1,0 +1,119 @@
+Aula 6 - função
+
+#include <stdio.h>
+
+int podeDoar(char g, float p) {
+
+    if(g == 'f' && p >= 50) {
+        return 1;
+    }
+
+    if(g == 'm' && p >= 60) {
+        return 1;
+    }
+
+    return 0;
+}
+
+int main(void) {
+
+    char g;
+    float p;
+
+    printf("Digite seu gênero (m ou f):\n");
+    scanf(" %c", &g);
+
+    printf("Digite seu peso em kg:\n");
+    scanf("%f", &p);
+
+    if(podeDoar(g, p)) {
+        printf("Você pode doar sangue!\n");
+    } else {
+        printf("Você não pode doar sangue!\n");
+    }
+
+    return 0;
+}
+
+--------------------------------------------------
+
+
+#include <stdio.h>
+
+void triplo(int *a, int *b, int *c)
+{
+    *a = *a * 3;
+    *b = *b * 3;
+    *c = *c *3;
+}
+
+----------------------------------------
+
+#include <stdio.h>
+
+void divisao(int, int);
+
+int main(void) {
+
+ int dividendo;
+ int divisor;
+ 
+ printf("Digite o dividendo:\n");
+ scanf("%d", &dividendo);
+
+ printf("Digite o divisor:\n");
+ scanf("%d", &divisor);
+ 
+ divisao(dividendo, divisor);
+
+  return 0;
+}
+
+void divisao(int a, int b) {
+    
+  int quociente = 0;
+  
+  while(a >= b)
+  {
+         a = a - b;
+         quociente++;
+  }
+  printf("O quociente é %d com resto %d", quociente, a);
+}
+
+----------------------------------------------------
+
+
+#include <stdio.h>
+
+int dataMagica(int dia, int mes, int ano)
+{
+    int ano2dig = ano % 100;
+
+    if (dia * mes == ano2dig)
+    {
+        return 1;
+    }
+
+    return 0;
+}
+
+int main(void)
+{
+    for (int ano = 1901; ano <= 1999; ano++)
+    {
+        for (int mes = 1; mes <= 12; mes++)
+        {
+            for (int dia = 1; dia <= 31; dia++)
+            {
+                if (dataMagica(dia, mes, ano))
+                {
+                    printf("A data %d/%d/%d é mágica\n",
+                           dia, mes, ano);
+                }
+            }
+        }
+    }
+
+    return 0;
+}
