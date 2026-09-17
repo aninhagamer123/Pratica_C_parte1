@@ -1,0 +1,55 @@
+Aula 4 - Recursividade
+
+
+#include <stdio.h>
+
+int mdc(int x, int y) {
+
+    if (y == 0) {
+        return x;
+    }
+    else {
+        return mdc(y, x % y);
+    }
+}
+
+-------------------------------
+
+#include <stdio.h>
+
+int soma(int n, int v[])
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+
+    return v[n - 1] + soma(n - 1, v);
+}
+
+--------------------------------------
+
+
+#include <stdio.h>
+
+void inverter(int v[], int i, int j) {
+    if (i >= j) return;
+
+    int temp = v[i];
+    v[i] = v[j];
+    v[j] = temp;
+
+    inverter(v, i + 1, j - 1);
+}
+
+int main() {
+    int v[] = {10, 20, 30, 40, 50, 60, 70};
+    int n = sizeof(v) / sizeof(v[0]);
+
+    inverter(v, 0, n - 1);
+
+    for (int i = 0; i < n; i++)
+        printf("%d ", v[i]);
+
+    return 0;
+}
