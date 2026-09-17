@@ -1,0 +1,130 @@
+aula 3 - repetição
+
+#include <stdio.h>
+
+int main() {
+
+    int N;
+
+    printf("Digite um número:\n");
+    scanf("%d", &N);
+
+    int anterior = 0;
+    int atual = 1;
+
+    for (int i = 0; i < N; i++) {
+
+        printf("%d", anterior);
+
+        int proximo = anterior + atual;
+
+        anterior = atual;
+        atual = proximo;
+
+        if (i < N - 1) {
+            printf(" ");
+        }
+    }
+
+    return 0;
+}
+
+----------------------------
+
+#include <stdio.h>
+
+int main() {
+    int numero;
+    int contador = 0;
+    int soma = 0;
+    int media = 0; // Mudado para int para exibir sem casas decimais
+
+    while (1) {
+        // A plataforma exige essa mensagem antes de ler cada número
+        printf("Digite um número:\n");
+        scanf("%d", &numero);
+        
+        if (numero == 0) {
+            break;
+        }
+        
+        soma += numero;
+        contador++;
+    }
+
+    if (contador > 0) {
+        media = soma / contador; // Divisão inteira truncada
+    }
+
+    // Exibe os resultados exatamente no formato exigido
+    printf("Você digitou %d números\n", contador);
+    printf("O somatório dos números é %d\n", soma);
+    printf("Média = %d\n", media);
+
+    return 0;
+}
+
+
+-----------------------
+
+#include <stdio.h>
+
+int main() {
+    int idade;
+    float custo_total = 0.0;
+
+    while (1) {
+        // Texto exigido antes de ler cada idade
+        printf("Digite a idade do visitante:\n");
+        scanf("%d", &idade);
+
+        if (idade == 0) {
+            break;
+        }
+
+        if (idade <= 2) {
+            custo_total += 0.00;
+        } 
+        else if (idade >= 3 && idade <= 12) {
+            custo_total += 14.00;
+        } 
+        else if (idade >= 65) {
+            custo_total += 18.00;
+        } 
+        else {
+            custo_total += 23.00;
+        }
+    }
+
+    // Texto exato exigido no resultado final
+    printf("O Valor do grupo é %.2f\n", custo_total);
+
+    return 0;
+}
+
+---------------------------------
+
+
+#include <stdio.h>
+
+int main() {
+    int numero, i;
+
+    // Mensagem solicitando o número ao usuário
+    printf("Digite um número:\n");
+    // Lê o número n
+    if (scanf("%d", &numero) == 1) 
+    {
+        // Gera o par de linhas de 1 até n
+        for (i = 1; i <= numero; i++) {
+            // Primeira linha do par
+            printf("%d %d %d\n", i, i * i, i * i * i);
+            
+            // d = avisa o pc oq deve ler ou exibir o numero um inteiro
+            // Segunda linha do par
+            printf("%d %d %d\n", i, (i * i) + 1, (i * i * i) + 1);
+        }
+    }
+
+    return 0;
+}
