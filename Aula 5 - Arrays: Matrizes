@@ -1,0 +1,168 @@
+Aula 5 - Arrays: Matrizes
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void){
+    int A[10][5];
+
+    srand(seed);
+
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 5; j++) {
+            A[i][j] = rand() % 101;
+        }
+    }
+
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 5; j++) {
+            printf(" %3d", A[i][j]);
+        }
+        printf("\n");
+    }
+
+    for (int j = 0; j < 5; j++) {
+        for (int i = 0; i < 10; i++) {
+            printf("%3d", A[i][j]);
+        }
+        printf("\n");
+    }
+
+    return 0;
+}
+
+------------------------------
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void){
+    srand(seed);
+
+    int m[8][8];
+    int soma = 0;
+
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            m[i][j] = rand() % 101;
+        }
+    }
+
+    for (int i = 0; i < 8; i++) {
+        for (int j = 0; j < 8; j++) {
+            printf("%3d ", m[i][j]);
+        }
+        printf("\n");
+    }
+
+    for (int i = 0; i < 8; i++) {
+        soma = soma + m[i][i];
+    }
+
+    printf("A soma da diagonal principal é %d", soma);
+
+    return 0;
+}
+
+------------------------------
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void) {
+    srand(seed);
+
+    int m[12][12];
+    int soma = 0;
+
+    // Preencher a matriz
+    for (int i = 0; i < 12; i++) {
+        for (int j = 0; j < 12; j++) {
+            m[i][j] = rand() % 101;
+        }
+    }
+
+    // Imprimir a matriz
+    for (int i = 0; i < 12; i++) {
+        for (int j = 0; j < 12; j++) {
+            printf("%3d ", m[i][j]);
+        }
+        printf("\n");
+    }
+
+    // Somar os elementos abaixo da diagonal
+    for (int i = 0; i < 12; i++) {
+        for (int j = 0; j < 12; j++) {
+
+            if (i > j) {
+                soma = soma + m[i][j];
+            }
+
+        }
+    }
+
+    printf("Soma: %d", soma);
+
+    return 0;
+}
+
+---------------------------------------
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    srand(seed);
+
+    int m[5][6];
+
+    // Preenche e imprime a matriz
+    for(int i = 0; i < 5; i++)
+    {
+        for(int j = 0; j < 6; j++)
+        {
+            m[i][j] = rand() % 1001;
+            printf("%4d ", m[i][j]);
+        }
+
+        printf("\n");
+    }
+
+    // Procura o menor elemento da matriz
+    int menor = m[0][0];
+    int linhaMenor = 0;
+
+    for(int i = 0; i < 5; i++)
+    {
+        for(int j = 0; j < 6; j++)
+        {
+            if(m[i][j] < menor)
+            {
+                menor = m[i][j];
+                linhaMenor = i;
+            }
+        }
+    }
+
+    // Procura o maior elemento da linha onde está o menor
+    int minimax = m[linhaMenor][0];
+    int colunaMinimax = 0;
+
+    for(int j = 1; j < 6; j++)
+    {
+        if(m[linhaMenor][j] > minimax)
+        {
+            minimax = m[linhaMenor][j];
+            colunaMinimax = j;
+        }
+    }
+
+    printf("MINMAX=%d na linha %d coluna %d\n",
+           minimax,
+           linhaMenor,
+           colunaMinimax);
+
+    return 0;
+}
