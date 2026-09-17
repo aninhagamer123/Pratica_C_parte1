@@ -1,0 +1,190 @@
+Aula 5 - Arrays: Vetores
+	
+#include <stdio.h>
+
+int main()
+{
+    int vet[10];
+
+    for(int i = 0; i < 10; i++)
+    {
+        scanf("%d", &vet[i]);
+    }
+
+    printf("Abaixo estão os números que atendem a condição\n");
+
+    for(int i = 2; i < 10; i++)
+    {
+        if(vet[i] > vet[i-1] + vet[i-2])
+        {
+            printf("%d\n", vet[i]);
+        }
+    }
+
+    return 0;
+}
+
+
+--------------------------
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void){
+
+    int menor = temperaturas[0];
+    int maior = temperaturas[0];
+
+    float soma = 0;
+
+    for(int i = 0; i < 8; i++)
+    {
+        soma += temperaturas[i];
+
+        if(temperaturas[i] < menor)
+        {
+            menor = temperaturas[i];
+        }
+
+        if(temperaturas[i] > maior)
+        {
+            maior = temperaturas[i];
+        }
+    }
+
+    float media = soma / 8;
+
+    printf("O menor valor é %d\n", menor);
+    printf("O Maior valor é %d\n", maior);
+    printf("A média de temperaturas é %.1f\n", media);
+
+    return 0;
+}
+
+---------------------------------
+
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    srand(seed);
+
+    int vet[10];
+    int cont = 0;
+
+    for(int i = 0; i < 10; i++)
+    {
+        vet[i] = rand() % 101;
+    }
+
+    for(int i = 0; i < 10; i++)
+    {
+        if(vet[i] > 50)
+        {
+            cont++;
+        }
+    }
+
+    if(cont == 0)
+    {
+        printf("Não há números maiores que 50");
+    }
+    else
+    {
+        printf("Há %d números maiores que 50 nas posições: ", cont);
+
+        for(int i = 0; i < 10; i++)
+        {
+            if(vet[i] > 50)
+            {
+                printf("%d ", i);
+            }
+        }
+    }
+
+    return 0;
+}
+
+---------------------------------------------------
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    srand(seed);
+
+    int vet[10];
+    int cont = 0;
+
+    for(int i = 0; i < 10; i++)
+    {
+        vet[i] = rand() % 101;
+    }
+
+    for(int i = 0; i < 10; i++)
+    {
+        if(vet[i] > 50)
+        {
+            cont++;
+        }
+    }
+
+    if(cont == 0)
+    {
+        printf("Não há números maiores que 50");
+    }
+    else
+    {
+        printf("Há %d números maiores que 50 nas posições: ", cont);
+
+        for(int i = 0; i < 10; i++)
+        {
+            if(vet[i] > 50)
+            {
+                printf("%d ", i);
+            }
+        }
+    }
+
+    return 0;
+}
+
+--------------------------------------
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(void)
+{
+    srand(seed);
+
+    int vet[20];
+
+    for(int i = 0; i < 20; i++)
+    {
+        vet[i] = rand() % 201;
+    }
+
+    for(int i = 0; i < 19; i++)
+    {
+        for(int j = 0; j < 19 - i; j++)
+        {
+            if(vet[j] > vet[j + 1])
+            {
+                int temp = vet[j];
+                vet[j] = vet[j + 1];
+                vet[j + 1] = temp;
+            }
+        }
+    }
+
+    for(int i = 0; i < 20; i++)
+    {
+        printf("%d ", vet[i]);
+    }
+
+    return 0;
+}
